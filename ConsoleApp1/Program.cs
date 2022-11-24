@@ -45,8 +45,28 @@ namespace WpfApp1
             inputBoxNum = int.Parse(Console.ReadLine());
 
             StartB = inputBoxNum;
-            Console.WriteLine("입력 받은 Start Box 의 개수는 \n" + StartB + " 개 입니다.");
+            Console.WriteLine("입력 받은 Start Box 의 개수는 " + StartB + " 개 입니다.");
 
+            switch ( StartB ) //StartB 가 5보다 적으면
+            {
+                case 5:
+                    Console.WriteLine(" 입력할 텍스트 5개가 생성 되었습니다.");
+                    break;
+                case 4:
+                    Console.WriteLine(" 입력할 텍스트 4개가 생성 되었습니다.");
+                    break;
+                case 3:
+                    Console.WriteLine(" 입력할 텍스트 3개가 생성 되었습니다.");
+                    break;
+                case 2:
+                    Console.WriteLine(" 입력할 텍스트 2개가 생성 되었습니다.");
+                    break;
+                case 1:
+                    Console.WriteLine(" 2개 이상 선택 해 주세요.");
+                    break;
+                default: Console.WriteLine("5개 이하로만 선택해 주세요.");
+                    break;
+            }
             LadderPosition LP = new LadderPosition();
         }
     }
