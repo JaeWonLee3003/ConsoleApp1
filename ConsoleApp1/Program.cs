@@ -88,8 +88,8 @@ namespace WpfApp1
                 }
             }
             Console.WriteLine("사다리에서 내려올 내용을 "+ StartInBox + "개 적어주세요.\n");
-            
-            String[] StartArr String[StartInBox];
+
+            string[] = StartArr String[StartInBox]; // 오류 고치기 
             Console.WriteLine(StartArr);
             inputBoxNum = int.Parse(Console.ReadLine());
 
