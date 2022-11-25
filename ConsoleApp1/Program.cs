@@ -3,47 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static WpfApp1.Ui_Class;
 
 namespace WpfApp1
 {
     public class LadderPosition
     {
-
-        public LadderPosition(int x, int y)
+        public int Positionx = 0;
+        public int Positiony = 0;
+        public void Position()
         {
 
         }
     }
 
-    public class StartBox
+    public class Ui_Class
     {
-        public int StartB = 0;
+        abstract class StartBox
+        {
+            public int StartB = 0;
+            int inputBoxNum = 0; // 입력된 박스 개수
+            int StartInBox = 0; // 처음에 담길 박스 개수
+        }
+
+        public class EndBox
+        {
+            public int EndB = 0;
+            int EndInBox = 0; // 마지막에 담길 박스 개수
+        }
     }
-    public class EndBox
+
+    public class StartWhile
     {
-        public int EndB = 0;
-
-    }
-
-
-
-    public class mainClass
-    {
-        public static int StartB { get; private set; }
-        public static int EndB { get; private set; }
 
 
         public static void Main(string[] args)
         {
-            int EndInBox = 0; // 마지막에 담길 박스 개수
-            int inputBoxNum = 0; // 입력된 박스 개수
-            int StartInBox = 0; // 처음에 담길 박스 개수
-            bool a = true; // a 에 true 값을 주고 처음부터 while 문을 활성화 해줌.
 
-
-
-            while (a) // 바로 활성화
+            while (whileTrue) // 바로 활성화
             {
+
                 Console.WriteLine("몇 개를 입력 하시겠습니까?");
                 inputBoxNum = int.Parse(Console.ReadLine()); // inputBoxNum 안에 횟수를 입력
                 StartB = inputBoxNum; // StartB 변수 안에 횟수를 할당
@@ -57,28 +56,28 @@ namespace WpfApp1
                         EndInBox = StartB; // 마지막 들어갈 박스안에 할당
                         Console.WriteLine("입력할 텍스트 5개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartInBox + "개 입니다. \n");
-                        a = false; // 강제종료 break; 가 안먹힘 이유는 모름
+                        whileTrue = false; // 강제종료 break; 가 안먹힘 이유는 모름
                         break;
                     case 4:
                         StartInBox = StartB;
                         EndInBox = StartB; // 마지막 들어갈 박스안에 할당
                         Console.WriteLine("입력할 텍스트 4개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartInBox + "개 입니다. \n");
-                        a = false;
+                        whileTrue = false;
                         break;
                     case 3:
                         StartInBox = StartB;
                         EndInBox = StartB; // 마지막 들어갈 박스안에 할당
                         Console.WriteLine("입력할 텍스트 3개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartInBox + "개 입니다. \n");
-                        a = false;
+                        whileTrue = false;
                         break;
                     case 2:
                         StartInBox = StartB;
                         EndInBox = StartB; // 마지막 들어갈 박스안에 할당
                         Console.WriteLine("입력할 텍스트 2개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartInBox + "개 입니다.\n ");
-                        a = false;
+                        whileTrue = false;
                         break;
                     case 1:
                         StartInBox = StartB;
@@ -98,26 +97,24 @@ namespace WpfApp1
             {
 
                 StartArr[i] = Console.ReadLine();
-                Console.WriteLine(StartArr[i]);
+
             }
 
+            //Console.WriteLine("입력 된 내용은 :" + StartArr[i]);
+        }
+    }
+
+    public class MainClass
+    {
 
 
+        public static void Main(string[] args)
+        {
 
-            /*switch (StartInBox)
-            {
-                case 1:
-                    Console.WriteLine("1개로는 시작 b할 수 없습니다.");
-                    break;
-                case 2:
-                    
-                    Console.WriteLine("입력한 내용은"+ StartArr[StartInBox] + " 입니다. ");
-                    break;
-            }*/
 
 
 
         }
-    }
-}
+    } } 
+
 
