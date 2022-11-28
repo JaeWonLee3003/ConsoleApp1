@@ -56,7 +56,7 @@ namespace WpfApp1
 
 
 
-        public static void Main(string[] args)
+        public static void Main(string[] argsr)
         {
             StartBox StartMain = new StartBox();
             EndBox EndMain = new EndBox();
@@ -100,47 +100,86 @@ namespace WpfApp1
                         Console.WriteLine("입력할 텍스트 2개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartMain.StartInBox + "개 입니다.\n ");
                         StartMain.whileTrue = false;
-                        break;
-                    case 1:
-                        StartMain.StartInBox = StartMain.StartB;
-                        Console.WriteLine("2개 이상 선택 해 주세요.\n");
-                        Console.WriteLine("TEST : 생성 된 텍스트" + StartMain.StartInBox + "개 입니다. \n");
-                        break;
+                        break;                    
                     default:
+                        Console.WriteLine("2개 이상 선택 해 주세요.\n");
                         Console.WriteLine("다시 입력해주세요. ^^ ( 최대 5개 )\n");
+                        StartMain.whileTrue = false;
                         break;
                 }
 
+                LadderPosition LP = new LadderPosition(); // 사다리를 불러올 생성자 Ex ) : LP.PositionDown(); Result = > Console.WriteLine("↓");
+
                 // Console.WriteLine("사다리에서 내려올 내용을 " + StartInBox + "개 적어주세요.\n");
+
                 string[] StartArr = new string[StartMain.StartInBox]; // StartArr 배열 안에 입력할 횟수인 StartInBox
-                Console.WriteLine("TEST : StartArr 배열 안에 들어간 길이는 " + StartArr.Length + "입니다.");
-                Console.WriteLine("입력 가능한 횟수는 :" + StartArr.Length + "회 입니다.");
+
+
+                Console.WriteLine("시작 박스 입력 가능한 횟수는 :" + StartArr.Length + "회 입니다. \n");
+
                 for (int i = 0; i < StartArr.Length; i++)
                 {
 
                     StartArr[i] = Console.ReadLine();
 
                 }
+                string[] EndArr = new string[EndMain.EndInBox]; // EndArr 배열 안에 입력할 횟수인 EndInBox
 
-                Console.WriteLine("실행하시겠습니까? (Y/N)");
-                string Guess = Console.ReadLine();
-                switch(Guess == "Y")
+                Console.WriteLine("도착 박스 입력 가능한 횟수는 :" + EndArr.Length + "회 입니다.\n");
+
+                for (int i = 0; i < EndArr.Length; i++)
                 {
-                   
-                    case 1:
-                        Console.WriteLine("실행 되었습니다.");
-                        break;
+
+                    EndArr[i] = Console.ReadLine();
+
                 }
+
+                StartWhile StartMain2 = new StartWhile();
+
+                while (StartMain.StartB >= 2) //StartB 가 2보다 많으면 실행 
+                {
+                    Console.WriteLine("1 ) Yes \n2 ) No");
+                    string Guess = Console.ReadLine();
+                    switch (int.Parse(Guess))
+                    {
+
+                        case 1:
+                            Console.WriteLine("실행 되었습니다.\n");
+                            for (int TryNumBox = EndMain.EndInBox; TryNumBox > 0; TryNumBox++)
+                            {
+                                Console.WriteLine("첫번 째 결과 입니다..\n");
+                                int forStartNum = 0;
+                                Console.WriteLine(StartArr[forStartNum++]);
+                                LP.PositionDown();
+                                LP.PositionRight();
+                                LP.PositionDown();
+                                LP.PositionLeft();
+                                int forEndNum = 0;
+                                Console.WriteLine(EndArr[forEndNum++]); 
+                                
+                            }
+                            StartMain.StartB = 1;
+                            break;
+
+
+                        case 2:
+                            Console.WriteLine("취소 되었습니다.");
+                            StartMain.StartB = 1;
+                            break;
+                    }
+                }
+                
+
             }
 
-            
 
-            
-            
+
+
+
         }
     }
 }
 
-    
+
 
 
