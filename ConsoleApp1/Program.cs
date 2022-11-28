@@ -14,7 +14,7 @@ namespace WpfApp1
         public int Positiony = 0;
         public void Position()
         {
-
+            // 커밋 전용
         }
     }
 
