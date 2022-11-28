@@ -145,18 +145,26 @@ namespace WpfApp1
 
                         case 1:
                             Console.WriteLine("실행 되었습니다.\n");
-                            for (int TryNumBox = EndMain.EndInBox; TryNumBox > 0; TryNumBox++)
+                            for (int TryNumBox = 1; TryNumBox <= EndMain.EndInBox; TryNumBox++)
                             {
-                                Console.WriteLine("첫번 째 결과 입니다..\n");
-                                int forStartNum = 0;
-                                Console.WriteLine(StartArr[forStartNum++]);
+                                
+                                int CountNum = 1;
+                                Console.WriteLine(CountNum + "번 결과 입니다..\n");
+                                CountNum = +1;
+                                int forStartNum = 0; //가
+                                Console.WriteLine(StartArr[forStartNum]); // 가 - 나
+                                forStartNum = +1;
                                 LP.PositionDown();
                                 LP.PositionRight();
                                 LP.PositionDown();
                                 LP.PositionLeft();
                                 int forEndNum = 0;
-                                Console.WriteLine(EndArr[forEndNum++]); 
+                                Console.WriteLine(EndArr[forEndNum++]);
+                                forEndNum = +1;// 다 - 라
                                 
+                                // 출력 결과 가 ↓ → ↓ ← 다
+                                // 출력 결과 나 ↓ → ↓ ← 라
+
                             }
                             StartMain.StartB = 1;
                             break;
