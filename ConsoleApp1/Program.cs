@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using static WpfApp1.Ui_Class;
@@ -12,14 +13,28 @@ namespace WpfApp1
     {
         public int Positionx = 0;
         public int Positiony = 0;
-        public void Position()
+
+
+        public void PositionDown()
         {
-            // 커밋 전용
+            Console.WriteLine("↓");
+        }
+        public void PositionRight()
+        {
+            Console.WriteLine("→");
+        }
+        public void PositionLeft()
+        {
+            Console.WriteLine("←");
         }
     }
 
     public class Ui_Class
     {
+        public class Random
+        {
+
+        }
         public class StartBox
         {
 
@@ -38,7 +53,7 @@ namespace WpfApp1
 
     public class StartWhile
     {
-        
+
 
 
         public static void Main(string[] args)
@@ -48,7 +63,7 @@ namespace WpfApp1
 
             while (StartMain.whileTrue) // 바로 활성화
             {
-                
+
 
                 Console.WriteLine("몇 개를 입력 하시겠습니까?");
                 StartMain.inputBoxNum = int.Parse(Console.ReadLine()); // inputBoxNum 안에 횟수를 입력
@@ -107,7 +122,15 @@ namespace WpfApp1
 
                 }
 
-                Console.WriteLine("입력 된 내용은 :" + StartArr[1]);
+                Console.WriteLine("실행하시겠습니까? (Y/N)");
+                string Guess = Console.ReadLine();
+                switch(Guess == "Y")
+                {
+                   
+                    case 1:
+                        Console.WriteLine("실행 되었습니다.");
+                        break;
+                }
             }
 
             
