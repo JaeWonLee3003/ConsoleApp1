@@ -17,15 +17,15 @@ namespace WpfApp1
 
         public void PositionDown()
         {
-            Console.WriteLine("↓");
+            Console.WriteLine("□↓□");
         }
         public void PositionRight()
         {
-            Console.WriteLine("→");
+            Console.WriteLine("□→□");
         }
         public void PositionLeft()
         {
-            Console.WriteLine("←");
+            Console.WriteLine("□←□");
         }
     }
 
@@ -100,7 +100,7 @@ namespace WpfApp1
                         Console.WriteLine("입력할 텍스트 2개가 생성 되었습니다.\n");
                         Console.WriteLine("TEST : 생성 된 텍스트" + StartMain.StartInBox + "개 입니다.\n ");
                         StartMain.whileTrue = false;
-                        break;                    
+                        break;
                     default:
                         Console.WriteLine("2개 이상 선택 해 주세요.\n");
                         Console.WriteLine("다시 입력해주세요. ^^ ( 최대 5개 )\n");
@@ -140,6 +140,9 @@ namespace WpfApp1
                 {
                     Console.WriteLine("1 ) Yes \n2 ) No");
                     string Guess = Console.ReadLine();
+                    int forStartNum = 0; //가
+                    int forEndNum = 0; //다
+                    int Plus = 1;
                     switch (int.Parse(Guess))
                     {
 
@@ -147,23 +150,19 @@ namespace WpfApp1
                             Console.WriteLine("실행 되었습니다.\n");
                             for (int TryNumBox = 1; TryNumBox <= EndMain.EndInBox; TryNumBox++)
                             {
-                                
-                                int CountNum = 1;
-                                Console.WriteLine(CountNum + "번 결과 입니다..\n");
-                                CountNum = +1;
-                                int forStartNum = 0; //가
-                                Console.WriteLine(StartArr[forStartNum]); // 가 - 나
-                                forStartNum = +1;
+                                Console.WriteLine("□" + TryNumBox + "번 결과 입니다.□");
+
+                                Console.WriteLine("□" + StartArr[forStartNum] + "□□□□□□□□"); // 가 - 나
+                                forStartNum++;
                                 LP.PositionDown();
                                 LP.PositionRight();
                                 LP.PositionDown();
                                 LP.PositionLeft();
-                                int forEndNum = 0;
-                                Console.WriteLine(EndArr[forEndNum++]);
-                                forEndNum = +1;// 다 - 라
-                                
-                                // 출력 결과 가 ↓ → ↓ ← 다
-                                // 출력 결과 나 ↓ → ↓ ← 라
+                                Console.WriteLine("□" + EndArr[forEndNum] + "□□□□□□□□");  // 다 - 라 
+                                forEndNum++; 
+
+                                // 출력 예상 결과 가 ↓ → ↓ ← 다
+                                // 출력 예상 결과 나 ↓ → ↓ ← 라
 
                             }
                             StartMain.StartB = 1;
@@ -176,14 +175,7 @@ namespace WpfApp1
                             break;
                     }
                 }
-                
-
             }
-
-
-
-
-
         }
     }
 }
